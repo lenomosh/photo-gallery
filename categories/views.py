@@ -16,6 +16,7 @@ def index(request):
             "image": image,
             'photo_count': len(category.image_set.all())
         }
+        # import pdb;pdb.set_trace()
         json_categories.append(category)
     context = {
         'categories': json_categories
@@ -34,6 +35,6 @@ def show(request, category_id):
     images = category.image_set.all()
     for image in images:
         print(image)
-    import pdb;
-    pdb.set_trace()
+    # import pdb;
+    # pdb.set_trace()
     return render(request, 'categories/show.html')
