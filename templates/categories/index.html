@@ -2,138 +2,31 @@
 {% load static %}
 {% block content %}
 <div class="container-fluid photos">
-    <div class="row pt-4 mb-5 text-center">
+    <div class="row pt-4 mr-1 mb-5 text-center">
         <div class="col-12">
             <h2 class="text-white mb-4">Photo Categories</h2>
         </div>
     </div>
-    <div class="row align-items-stretch">
-
+    <div class="row mr-5 align-items-center ">
+        {% for category in categories %}
         <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
+            <a href="{% url 'categories.show' category.category.id %}" class="d-block photo-item">
+                <img
+                        {% if category.image %}
+                        src="{{ category.image.image.url }}"
+                        {% else %}
+                        src="{% static 'images/default_category.jpg' %}"
+                        {% endif %}
+                        alt="Image" class="img-fluid">
                 <div class="photo-text-more">
                     <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
+                        <h3 class="heading">{{ category.category.name}}</h3>
+                        <span class="meta">{{ category.photo_count}} Photos</span>
                     </div>
                 </div>
             </a>
         </div>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <h3 class="heading">Photos Title Here</h3>
-                    <span class="meta">42 Photos</span>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <a href="single.html" class="d-block photo-item">
-                <img src="{% static 'images/img_4.jpg' %}" alt="Image" class="img-fluid">
-                <div class="photo-text-more">
-                    <div class="photo-text-more">
-                        <h3 class="heading">Photos Title Here</h3>
-                        <span class="meta">42 Photos</span>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
