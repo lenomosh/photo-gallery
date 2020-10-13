@@ -39,8 +39,7 @@ class Image(models.Model):
 
     def get_image_by_id(self, image_id: int) -> Image:
         # import pdb;pdb.set_trace()
-        res = Image.objects.get(id=image_id)
-        return res
+        return Image.objects.get(id=image_id)
 
     def filter_by_location(self, location_id: int) -> List[Image]:
         return Image.objects.filter(location_id=location_id).all()
