@@ -13,9 +13,15 @@
 
         <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up" {% if forloop.counter is not 1 %} data-aos-delay="200"
              {% endif %}>
-            <a href="{{ image.image.url }}" class="d-block photo-item" data-fancybox="gallery"
-               data-caption="'{{image.name}}' was shot at '{{image.location_id.name}}' and belongs to '{{name}}'">
-                <img src="{{image.image.url }}" alt="{{image.name}}" class="img-fluid">
+            <a
+                    href="{{ image.image.url }}"
+                    class="d-block photo-item"
+                    data-fancybox="gallery"
+                    data-caption="'{{image.name}}' was shot at '{{image.location_id.name}}' and belongs to '{{name}}'">
+                <img
+                        src="{{image.image.url }}"
+                        alt="{{image.name}}"
+                        class="img-fluid">
                 <div class="photo-text-more">
                     <span class="icon icon-search"></span>
                 </div>
