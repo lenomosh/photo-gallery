@@ -1,5 +1,4 @@
 from typing import List, Dict
-
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from django.http import Http404, JsonResponse
@@ -16,13 +15,10 @@ def index(request):
             "image": image,
             'photo_count': len(category.image_set.all())
         }
-        # import pdb;pdb.set_trace()
         json_categories.append(category)
     context = {
         'categories': json_categories
     }
-    # import pdb;pdb.set_trace()
-
     return render(request, 'categories/index.html', context)
 
 
@@ -38,10 +34,6 @@ def show(request, category_id):
         "images": images,
         'photo_count': len(images)
     }
-    # for image in images:
-    #     print(image)
-    # import pdb;
-    # pdb.set_trace()
     return render(request, 'categories/show.html', context)
 
 
