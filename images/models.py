@@ -9,7 +9,7 @@ from locations.models import Location
 import datetime
 
 
-class CommonFields():
+class CommonFields:
     CREATED_AT = models.DateTimeField(default=datetime.datetime.now)
     UPDATED_AT = models.DateTimeField(default=datetime.datetime.now)
 
@@ -37,13 +37,10 @@ class Image(models.Model):
     def delete_image(self) -> None:
         self.delete()
 
-    # def all(self) -> List[Image]:
-    #     return self.objects.all()
-
-    def get_image_by_id(self, image_id: int) -> 'Image':
+    def get_image_by_id(self, image_id: int) -> Image:
         return self.objects.get(id=image_id)
 
-    def filter_by_location(self, location_id: int) -> List['Image']:
+    def filter_by_location(self, location_id: int) -> List[Image]:
         return self.objects.filter(location_id=location_id).all()
 
     def search_image(self, category_id: int) -> List[Image]:
