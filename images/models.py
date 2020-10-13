@@ -32,16 +32,18 @@ class Image(models.Model):
         self.save()
 
     def update_image(self, id: int, data: Dict) -> None:
-        self.objects.filter(id=id).update(**data)
+        Image.objects.filter(id=id).update(**data)
 
     def delete_image(self) -> None:
         self.delete()
 
     def get_image_by_id(self, image_id: int) -> Image:
-        return self.objects.get(id=image_id)
+        # import pdb;pdb.set_trace()
+        res = Image.objects.get(id=image_id)
+        return res
 
     def filter_by_location(self, location_id: int) -> List[Image]:
-        return self.objects.filter(location_id=location_id).all()
+        return Image.objects.filter(location_id=location_id).all()
 
     def search_image(self, category_id: int) -> List[Image]:
-        return self.objects.filter(category_id=category_id).all()
+        return Image.objects.filter(category_id=category_id).all()
