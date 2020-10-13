@@ -1,0 +1,39 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid photos">
+    <div class="row pt-4 mb-5 text-center">
+        {% if photo_count %}
+        <div class="col-12">
+            <h2 class="text-white mb-4">{{ name }} &mdash; {{photo_count}} Photos</h2>
+        </div>
+    </div>
+    <div class="row align-items-stretch">
+        {% for image in images %}
+        <div class="col-6 col-md-6 col-lg-3" data-aos="fade-up"
+             {% if forloop.counter is not 1 %}
+             data-aos-delay="200"
+             {% endif %}>
+            <a
+                    href="{{ image.image.url }}"
+                    class="d-block photo-item"
+                    data-fancybox="gallery"
+                    data-caption="'{{image.name}}' was shot at '{{image.location_id.name}}' and belongs to '{{image.category_id.name}}'">
+                <img
+                        src="{{image.image.url }}"
+                        alt="{{image.name}}"
+                        class="img-fluid">
+                <div class="photo-text-more">
+                    <span class="icon icon-search"></span>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="col-12">
+        <h2 class="text-white mb-4">'{{name}}' has no photos yet!</h2>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
