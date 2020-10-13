@@ -14,10 +14,14 @@ def index(request):
     json_locations = []
     for location in locations:
         image = location.image_set.first()
+        if not image:
+            image = None
+        else:
+            image = image.image.url
         location = {
             "name": location.name,
             'id': location.id,
-            "image_url": image.image.url,
+            "image_url": image,
             'photo_count': len(location.image_set.all())
         }
         json_locations.append(location)
