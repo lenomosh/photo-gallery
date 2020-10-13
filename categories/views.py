@@ -1,8 +1,8 @@
+from typing import List, Dict
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
-from django.http import Http404
-
-# Create your views here.
+from django.http import Http404, JsonResponse
 from categories.models import Category
 
 
@@ -33,8 +33,19 @@ def show(request, category_id):
     except ObjectDoesNotExist:
         raise Http404
     images = category.image_set.all()
-    for image in images:
-        print(image)
+    context = {
+        "name": category.name,
+        "images": images,
+        'photo_count': len(images)
+    }
+    # for image in images:
+    #     print(image)
     # import pdb;
     # pdb.set_trace()
-    return render(request, 'categories/show.html')
+    return render(request, 'categories/show.html', context)
+
+
+def all_categories(request) -> JsonResponse:
+    categories: List[Category] = Category.objects.all()
+    json_categories: List[Dict[str, int]] = [{"name": x.name, "id": x.id} for x in categories]
+    return JsonResponse({"data": json_categories})
