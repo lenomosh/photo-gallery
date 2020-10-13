@@ -1,1 +1,11 @@
-<h1>Homepage</h1>
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+<div style="background-image: url('{% static 'images/img_4.jpg' %}')" class="container-fluid homepage">
+    <div class="overlay-text">
+        <p class="text-center homepage-main-text"></p>
+    </div>
+</div>
+
+{% endblock %}
