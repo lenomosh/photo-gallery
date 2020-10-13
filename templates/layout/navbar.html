@@ -1,0 +1,77 @@
+<style>
+
+</style>
+<div class="site-mobile-menu">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="header-bar d-flex d-lg-block align-items-center" data-aos="fade-left">
+    <div class="site-logo">
+        <a href="/">Image Gallery</a>
+    </div>
+
+    <div class="d-inline-block d-xl-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                                                                                                        class="site-menu-toggle js-menu-toggle text-white"><span
+            class="icon-menu h3"></span></a></div>
+
+    <div class="main-menu">
+        <ul class="{% static '-clone-nav">
+            <li
+                    {% if
+            '/' == request.path %}
+            class="active"
+            {% endif %}
+            ><a href="{% url 'index' %}">Home</a></li>
+            <li
+                    {% if
+            'categories' in request.path %}
+            class="active"
+            {% endif %}><a href="{% url 'categories.index' %}">Categories</a>
+            </li>
+            <li
+                    {% if
+            'locations' in request.path %}
+            class="active"
+            {% endif %}>
+            <a href="{% url 'locations.index' %}">Locations</a>
+            </li>
+            <li class="pt-5">
+          <span id="opensearchBox" style="cursor: pointer;" class="text-white">
+                    <span class="icon icon-search"></span> Search
+          </span>
+            </li>
+        </ul>
+    </div>
+</header>
+<div id="searchbarOverlay" class="overlay" data-aos="fade-up">
+    <span id="closeSearchBox" class=" closebtn icon icon-cancel" title="Close Overlay"></span>
+    <div class="overlay-content">
+        <form id="searchForm">
+            <div class="row">
+                <div class="col-sm-5  align-self-center">
+                    <label for="location_id" class="text-white"> Location</label>
+                    <select style="padding: 20px !important;width: 100%" id="location_id" class="form-control"
+                            name="location_id">
+                    </select>
+                </div>
+                <div class="col-sm-5 align-self-center">
+                    <label for="category_id" class="text-white"> Category</label>
+
+                    <select style="padding: 20px !important;width: 100%" id="category_id" class="form-control "
+                            name="category_id">
+                    </select>
+                </div>
+                <div class="col-sm-2 m-0 p-0 align-self-center">
+                    <button class="btn btn-grey" type="submit"><i class="icon icon-search"></i></button>
+                </div>
+            </div>
+        </form>
+        <br><br>
+        <div id="searchResult"></div>
+    </div>
+</div>
