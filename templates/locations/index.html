@@ -1,0 +1,33 @@
+{% extends 'layout/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid photos">
+    <div class="row pt-4 mr-1 mb-5 text-center">
+        <div class="col-12">
+            <h2 class="text-white mb-4">Photo Locations</h2>
+        </div>
+    </div>
+    <div class="row mr-5 align-items-center ">
+        {% for location in locations %}
+        <div class="col-6 col-md-6 col-lg-4" data-aos="fade-up">
+            <a href="{% url 'locations.show' location.id %}" class="d-block photo-item">
+                <img
+                        {% if location.image_url %}
+                        src="{{ location.image_url }}"
+                        {% else %}
+                        src="{% static 'images/img_1.jpg' %}"
+                        {% endif %}
+                        alt="Image" class="img-fluid">
+                <div class="photo-text-more">
+                    <div class="photo-text-more">
+                        <h3 class="heading">{{ locations.name}}</h3>
+                        <span class="meta">{{ locations.photo_count}} Photos</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
