@@ -1,7 +1,5 @@
 from django.db import models
 
-Charfield = models.CharField,
-
 
 # Create your models here.
 
