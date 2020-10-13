@@ -6,31 +6,31 @@
     </div>
     <div class="site-mobile-menu-body"></div>
 </div>
+
 <header class="header-bar d-flex d-lg-block align-items-center" data-aos="fade-left">
     <div class="site-logo">
         <a href="/">Image Gallery</a>
     </div>
-    <div class="d-inline-block d-xl-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;">
-        <a href="#" class="site-menu-toggle js-menu-toggle text-white">
-            <span
-                    class="icon-menu h3"></span></a></div>
+
+    <div class="d-inline-block d-xl-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#"
+                                                                                                        class="site-menu-toggle js-menu-toggle text-white"><span
+            class="icon-menu h3"></span></a></div>
+
     <div class="main-menu">
-        <ul class="{% static '-clone-nav">
+        <ul class="js-clone-nav">
             <li
-                    {% if
-            '/' == request.path %}
+                    {% if '/' == request.path %}
             class="active"
             {% endif %}
-            ><a href="{% url 'index' %}">Home</a></li>
+            >
+            <a href="{% url 'index' %}">Home</a></li>
             <li
-                    {% if
-            'categories' in request.path %}
+                    {% if 'categories' in request.path %}
             class="active"
             {% endif %}><a href="{% url 'categories.index' %}">Categories</a>
             </li>
             <li
-                    {% if
-            'locations' in request.path %}
+                    {% if 'locations' in request.path %}
             class="active"
             {% endif %}>
             <a href="{% url 'locations.index' %}">Locations</a>
