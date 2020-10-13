@@ -12,7 +12,7 @@ jQuery(document).ready(function ($) {
     )
     $.ajax({
         type: 'GET',
-        url: "http://localhost:8000/categories/all"
+        url: "https://app-galla.herokuapp.com/categories/all"
     }).then(function (data) {
         data.data.map(element => {
             var option = new Option(element.name, element.id, false, false);
@@ -22,7 +22,7 @@ jQuery(document).ready(function ($) {
     });
     $.ajax({
         type: 'GET',
-        url: "http://localhost:8000/locations/all"
+        url: "https://app-galla.herokuapp.com/locations/all"
     }).then(function (data) {
         data.data.map(element => {
             var option = new Option(element.name, element.id, false, false);
@@ -66,7 +66,7 @@ jQuery(document).ready(function ($) {
                     {
                         data: {location_id, category_id},
                         type: 'GET',
-                        url: "http://localhost:8000/images/search",
+                        url: "https://app-galla.herokuapp.com/images/search",
                         success: function (response) {
                             if (response.data && response.data.length > 0) {
                                 const jsonRes = response.data
